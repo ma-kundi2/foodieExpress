@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Foodie Express – PayPal Payments</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="nav-logo">🍽️ Foodie Express</div>
+      <ul class="nav-links">
+        <li><a href="#menu-section">Menu</a></li>
+        <li><a href="#about-us">About Us</a></li>
+        <li><a href="#contact-info">Contact</a></li>
+      </ul>
+    </nav>
+    <p>Your favorite food delivered fast!</p>
+  </header>
+  <main>
+    <section id="menu-section">
+      <h2>Menu</h2>
+      <div id="menu" class="menu-grid" aria-live="polite"></div>
+    </section>
+    <section id="cart-section" aria-labelledby="cart-title">
+      <h2 id="cart-title">🛒 Cart</h2>
+      <ul id="cart" class="cart-list"></ul>
+      <div class="cart-footer">
+        <strong id="cart-total"></strong>
+      </div>
+      <div class="cart-actions">
+        <button type="button" onclick="clearCart()" aria-label="Clear Cart" id="clear-cart-btn">Clear Cart</button>
+        <button type="button" onclick="checkout()" id="checkout-btn" aria-label="Checkout">Checkout</button>
+      </div>
+    </section>
+  </main>
+  <section id="about-us">
+    <div class="about-container">
+      <h2>About Us</h2>
+      <p>
+        <strong>Foodie Express</strong> was founded by passionate food lovers in 2025 to make food delivery accessible to everyone, everywhere.<br>
+        Our mission is to deliver your favorite dishes from top local restaurants right to your doorstep—quickly, affordably, and always fresh.
+      </p>
+      <p>
+        We believe in quality, convenience, and supporting local businesses.<br>
+        With an ever-expanding menu and a friendly team, we aim to transform meal times into joyful experiences for you and your loved ones.
+      </p>
+    </div>
+  </section>
+  <section id="contact-info">
+    <div class="contact-container">
+      <h2>Contact Us</h2>
+      <p>
+        Have questions, feedback, or need help with your order? Our team is here for you!
+      </p>
+      <ul>
+        <li>Email: <a href="mailto:godlivingmakundi02@gmail.com">godlivingmakundi02@gmail.com</a></li>
+        <li>Phone: <a href="tel:+255657074152">+255657074152</a></li>
+        <li>Address: Udom,DODOMA</li>
+      </ul>
+      <p>
+        Or connect with us on  
+        <a href="#" title="Facebook" style="color:#4267B2;">Facebook</a>,  
+        <a href="#" title="Instagram" style="color:#E1306C;">Instagram</a>,  
+        <a href="#" title="Twitter" style="color:#1DA1F2;">Twitter</a>
+      </p>
+      <form class="contact-form" id="contact-form" autocomplete="off">
+        <label for="name-input">
+          Your Name:
+          <input id="name-input" type="text" name="name" required placeholder="Enter your name">
+        </label>
+        <label for="email-input">
+          Your Email:
+          <input id="email-input" type="email" name="email" required placeholder="Enter your email">
+        </label>
+        <label for="message-input">
+          Message:
+          <textarea id="message-input" name="message" rows="3" required placeholder="Type your message"></textarea>
+        </label>
+        <button type="submit">Send Message</button>
+      </form>
+      <div id="contact-form-status" style="margin-top:1em; font-weight:500;"></div>
+    </div>
+  </section>
+  <footer>
+    <p>© 2025 Foodie Express</p>
+  </footer>
+
+  <!-- Checkout Modal and Overlay -->
+  <div id="modal-overlay" style="display:none"></div>
+  <div id="checkout-modal" class="checkout-modal" style="display:none;">
+    <h3>Complete Your Order</h3>
+    <p style="margin-bottom:16px;color:#444">Click below to pay securely with PayPal:</p>
+    <div id="paypal-button-container"></div>
+    <button type="button" class="close-checkout" onclick="closeCheckout()">Cancel</button>
+  </div>
+
+  <script src="https://www.paypal.com/sdk/js?client-id=<YOUR_PAYPAL_CLIENT_ID>&currency=USD"></script>
+  <div id="toast" role="alert" aria-live="polite" tabindex="-1"></div>
+  <script src="app.js"></script>
+</body>
+</html>
